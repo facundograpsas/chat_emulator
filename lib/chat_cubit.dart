@@ -36,9 +36,9 @@ class ChatCubit extends Cubit<ChatState>{
   void sendMessage() async {
     var messageSplit = _fullList.elementAt(_index).split(": ");
     var message = Message(sender: messageSplit[0], message: messageSplit[1]);
-    await messageTimeRandomizer(message.message);
 
     if(_chatList.isNotEmpty) {
+      await messageTimeRandomizer(message.message);
       _lastMessage = _chatList.last;
       if(_chatList.last.sender==message.sender) message.firstMessage = false;
     }

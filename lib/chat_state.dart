@@ -2,10 +2,6 @@ import 'package:opinologos_eternum/message.dart';
 
 abstract class ChatState {
 
-
-  // @override
-  // // TODO: implement props
-  // List<Object> get props => [];
   get chatList => [];
 
 }

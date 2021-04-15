@@ -33,7 +33,7 @@ class _ChatPageState extends State<ChatPage> {
         appBar: AppBar(
           title: Text("Opinologos 2.0"),
           // backgroundColor: Color(0xFF025044),
-          backgroundColor: Colors.purple,
+          backgroundColor: Colors.green,
         ),
         body: Container(
             decoration: BoxDecoration(

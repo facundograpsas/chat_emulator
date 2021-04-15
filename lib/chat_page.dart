@@ -4,14 +4,26 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:opinologos_eternum/chat_cubit.dart';
 import 'package:opinologos_eternum/chat_state.dart';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
+
+
 class ChatPage extends StatefulWidget {
   @override
   _ChatPageState createState() => _ChatPageState();
+
+  String mobileBg = "whatsappbg.png";
+  String webBg = "whatsapp_web_bg.jpg";
+
 }
 
 class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
+    if(kIsWeb) {
+      // running on the web!
+    } else {
+      // NOT running on the web! You can check for additional platforms here.
+    }
     return BlocProvider(
       create: (_) => ChatCubit(),
       child: Scaffold(

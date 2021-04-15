@@ -44,6 +44,7 @@ flutter:
   assets:
     - assets/peternum.txt
     - assets/whatsappbg.png
+    - assets/whatsappwebbg.png
 
 
   # The following line ensures that the Material Icons font is

@@ -11,18 +11,21 @@ class ChatPage extends StatefulWidget {
   @override
   _ChatPageState createState() => _ChatPageState();
 
-  String mobileBg = "whatsappbg.png";
-  String webBg = "whatsapp_web_bg.jpg";
 
 }
 
 class _ChatPageState extends State<ChatPage> {
+
+  String mBg = "whatsappbg.png";
+  String webBg = "whatsapp_web_bg.jpg";
+  String? bg;
+
   @override
   Widget build(BuildContext context) {
     if(kIsWeb) {
-      // running on the web!
+      bg = webBg;
     } else {
-      // NOT running on the web! You can check for additional platforms here.
+      bg = mBg;
     }
     return BlocProvider(
       create: (_) => ChatCubit(),
@@ -35,7 +38,7 @@ class _ChatPageState extends State<ChatPage> {
         body: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/whatsappbg.png'),
+                image: AssetImage('assets/$bg'),
                 fit: BoxFit.cover
               )
             ),

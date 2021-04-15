@@ -2,41 +2,51 @@
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:opinologos_eternum/message.dart';
 
 import 'chat_state.dart';
 
 class ChatCubit extends Cubit<ChatState>{
 
-  List<String> _chatList = [];
+  List<Message> _chatList = [];
   List<String> _fullList = [];
 
-  var randomStart;
-  var fileText;
-  var random;
-  var index;
+  late int _randomStart;
+  late String _fileText;
+  late int _index;
+   Message? _lastMessage;
 
 
 
   ChatCubit()  : super(ChatInitial());
 
   void loadChat() async{
-    fileText = await rootBundle.loadString('assets/peternum.txt');
-    _fullList = LineSplitter.split(fileText).toList();
-    randomStart = Random().nextInt(_fullList.length-1);
-    index = randomStart;
-    getMessage();
+    _fileText = await rootBundle.loadString('assets/peternum.txt');
+    _fullList = LineSplitter.split(_fileText).toList();
+    _randomStart = Random().nextInt(_fullList.length-1);
+    _index = _randomStart;
+    sendMessage();
   }
 
-  void getMessage() async {
-    // emit(ChatStarting2(_chatList));
-    var message = _fullList.elementAt(index);
-    await messageTimeRandomizer(message);
+  void sendMessage() async {
+    var messageSplit = _fullList.elementAt(_index).split(": ");
+    var message = Message(sender: messageSplit[0], message: messageSplit[1]);
+    await messageTimeRandomizer(message.message);
+
+    if(_chatList.isNotEmpty) {
+      _lastMessage = _chatList.last;
+      if(_chatList.last.sender==message.sender) message.firstMessage = false;
+    }
+
     _chatList.add(message);
-    index++;
-    emit(ChatSending(_chatList));
-    getMessage();
+    _index++;
+    emit(ChatSendingMessage(_chatList));
+    sendMessage();
   }
 
   Future messageTimeRandomizer(String message) async {
@@ -51,5 +61,4 @@ class ChatCubit extends Cubit<ChatState>{
     super.onChange(change);
   }
 
-
-}
+  }

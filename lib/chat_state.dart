@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+import 'package:opinologos_eternum/message.dart';
 
 abstract class ChatState {
 
@@ -13,13 +13,19 @@ abstract class ChatState {
 class ChatInitial extends ChatState{
 }
 
-class ChatSending extends ChatState{
- final List<String> chatList;
- ChatSending(this.chatList);
+class ChatSendingMessage extends ChatState{
+ final List<Message> chatList;
+ ChatSendingMessage(this.chatList);
+}
 
- // @override
- //  // TODO: implement props
- //  List<Object> get props => [chatList.length];
+class ChatSendingFirstMessage extends ChatState{
+  final List<Message> chatList;
+  ChatSendingFirstMessage(this.chatList);
+}
+
+class ChatWritingMessage extends ChatState{
+  final List<Message> chatList;
+  ChatWritingMessage(this.chatList);
 }
 
 

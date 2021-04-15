@@ -35,12 +35,12 @@ class _ChatPageState extends State<ChatPage> {
         appBar: AppBar(
           title: Text("Opinologos 2.0"),
           // backgroundColor: Color(0xFF025044),
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.red,
         ),
         body: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/$bg'),
+                image: AssetImage('assets/images/$mBg'),
                 fit: BoxFit.cover
               )
             ),

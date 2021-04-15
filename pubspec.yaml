@@ -43,9 +43,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/peternum.txt
-    - assets/whatsappbg.png
-    - assets/whatsappwebbg.jpg
-    - assets/goku.jpg
+    - assets/images/
 
 
 

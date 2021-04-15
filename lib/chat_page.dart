@@ -17,7 +17,7 @@ class ChatPage extends StatefulWidget {
 class _ChatPageState extends State<ChatPage> {
 
   String mBg = "whatsappbg.png";
-  String webBg = "whatsapp_web_bg.jpg";
+  String webBg = "whatsappwebbg.jpg";
   String? bg;
 
   @override

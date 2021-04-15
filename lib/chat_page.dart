@@ -146,7 +146,7 @@ class MessageBox extends StatelessWidget {
                 border: Border.all(
                     color: Colors.grey,
                     width: 0.3),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(8),
                 boxShadow: [
                   BoxShadow(
                       color: Colors.grey.withOpacity(0.3),

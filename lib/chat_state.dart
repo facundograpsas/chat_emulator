@@ -3,6 +3,7 @@ import 'package:opinologos_eternum/message.dart';
 abstract class ChatState {
 
   get chatList => [];
+  List<Object> get props => [];
 
 }
 
@@ -21,7 +22,11 @@ class ChatSendingFirstMessage extends ChatState{
 
 class ChatWritingMessage extends ChatState{
   final List<Message> chatList;
-  ChatWritingMessage(this.chatList);
+  final String sender;
+  ChatWritingMessage(this.chatList, this.sender);
+
+  List<Object> get props => [sender, chatList];
+
 }
 
 

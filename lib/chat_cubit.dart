@@ -35,7 +35,14 @@ class ChatCubit extends Cubit<ChatState>{
 
   void sendMessage() async {
     var messageSplit = _fullList.elementAt(_index).split(": ");
+    var nextMessageSplit = _fullList.elementAt(_index).split(": ");
+
     var message = Message(sender: messageSplit[0], message: messageSplit[1]);
+    var nextMessage = Message(sender: messageSplit[0], message: messageSplit[1]);
+
+
+    emit(ChatWritingMessage(_chatList,nextMessage.sender));
+
 
     if(_chatList.isNotEmpty) {
       await messageTimeRandomizer(message.message);
@@ -46,6 +53,7 @@ class ChatCubit extends Cubit<ChatState>{
     _chatList.add(message);
     _index++;
     emit(ChatSendingMessage(_chatList));
+    await Future.delayed(Duration(milliseconds: 500));
     sendMessage();
   }
 

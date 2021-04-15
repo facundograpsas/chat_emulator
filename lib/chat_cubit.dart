@@ -1,5 +1,6 @@
 
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,8 +12,11 @@ class ChatCubit extends Cubit<ChatState>{
   List<String> _chatList = [];
   List<String> _fullList = [];
 
-  var index = 0;
+  var randomStart;
   var fileText;
+  var random;
+  var index;
+
 
 
   ChatCubit()  : super(ChatInitial());
@@ -20,18 +24,24 @@ class ChatCubit extends Cubit<ChatState>{
   void loadChat() async{
     fileText = await rootBundle.loadString('assets/peternum.txt');
     _fullList = LineSplitter.split(fileText).toList();
-    startChat();
+    randomStart = Random().nextInt(_fullList.length-1);
+    index = randomStart;
+    getMessage();
   }
 
-  void startChat() async {
+  void getMessage() async {
     // emit(ChatStarting2(_chatList));
-    await Future.delayed(Duration(seconds: 2));
-    _chatList.add(_fullList.elementAt(index));
+    var message = _fullList.elementAt(index);
+    await messageTimeRandomizer(message);
+    _chatList.add(message);
     index++;
-    if(_chatList.length<10){
-      emit(ChatStarting(_chatList));
-      startChat();
-    }
+    emit(ChatSending(_chatList));
+    getMessage();
+  }
+
+  Future messageTimeRandomizer(String message) async {
+    var messageLength = message.length;
+    await Future.delayed(Duration(milliseconds: messageLength*100+Random().nextInt(3000)));
   }
 
   @override

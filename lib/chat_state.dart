@@ -13,9 +13,9 @@ abstract class ChatState {
 class ChatInitial extends ChatState{
 }
 
-class ChatStarting extends ChatState{
+class ChatSending extends ChatState{
  final List<String> chatList;
- ChatStarting(this.chatList);
+ ChatSending(this.chatList);
 
  // @override
  //  // TODO: implement props

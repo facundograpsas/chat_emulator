@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:opinologos_eternum/chat_cubit.dart';
 import 'package:opinologos_eternum/chat_state.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 import 'package:flutter/foundation.dart' show kIsWeb;
 
@@ -15,6 +17,8 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
+
+  Color barColor = Color(0xFF025044);
 
   String mBg = "whatsappbg.png";
   String asd = "whatsappwebbg.jpg";
@@ -35,7 +39,7 @@ class _ChatPageState extends State<ChatPage> {
         appBar: AppBar(
           title: Text("Opinologos 2.0"),
           // backgroundColor: Color(0xFF025044),
-          backgroundColor: Colors.red,
+          backgroundColor:barColor,
         ),
         body: Container(
             decoration: BoxDecoration(
@@ -67,6 +71,9 @@ class _ChatViewState extends State<ChatView> {
         else{
       return Column(
         children: [
+          SizedBox(
+            height: 20,
+          ),
           Flexible(
               child: ListView(
                 children: <Widget>[
@@ -98,18 +105,18 @@ class FirstMessageBox extends StatelessWidget {
     return Wrap(
       children: [
         Container(
-          margin: EdgeInsets.all(10),
+          margin: EdgeInsets.only(bottom: 5,left: 15,top: 3),
           child: DecoratedBox(
             decoration: BoxDecoration(
-                color: Colors.white70,
+                color: Colors.white,
                 border: Border.all(
                 color: Colors.grey,
-                width: 0.3),
+                width: 0.6),
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(
-                      color: Colors.grey.withOpacity(0.3),
-                      spreadRadius: 5,
+                      color: Colors.black,
+                      spreadRadius: 2,
                       blurRadius: 7,
                       offset: Offset(0,3)
                   )
@@ -123,14 +130,15 @@ class FirstMessageBox extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 4),
+                        padding: const EdgeInsets.only(bottom: 1),
                         child: Text(message.sender,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: message.color
+                        style: GoogleFonts.mukta(
+                            fontWeight: FontWeight.bold,
+                            color: message.color
                         ),),
                       ),
-                      Text(message.message),
+                      Text(message.message,
+                          style: GoogleFonts.mukta()),
                     ],
                   ),
                 )
@@ -156,18 +164,18 @@ class MessageBox extends StatelessWidget {
     return Wrap(
       children: [
         Container(
-          margin: EdgeInsets.all(10),
+          margin: EdgeInsets.only(bottom: 5,left: 15),
           child: DecoratedBox(
             decoration: BoxDecoration(
-                color: Colors.white70,
+                color: Colors.white,
                 border: Border.all(
                     color: Colors.grey,
-                    width: 0.3),
+                    width: 0.6),
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(
-                      color: Colors.grey.withOpacity(0.3),
-                      spreadRadius: 5,
+                      color: Colors.black,
+                      spreadRadius: 2,
                       blurRadius: 7,
                       offset: Offset(0,3)
                   )
@@ -182,7 +190,8 @@ class MessageBox extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(bottom: 4),
-                        child: Text(message.message),
+                        child: Text(message.message,
+                        style: GoogleFonts.mukta()),
                       ),
                       // Text(message.message),
                     ],

@@ -5,11 +5,11 @@ import 'package:flutter/services.dart';
 import 'package:opinologos_eternum/chat_page.dart';
 
 void main() async {
-  runApp(MyApp());
+  runApp(ChatApp());
 
 }
 
-class MyApp extends StatelessWidget {
+class ChatApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

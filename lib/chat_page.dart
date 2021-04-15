@@ -165,13 +165,9 @@ class MessageBox extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(bottom: 4),
-                        child: Text(message.sender,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: message.color
-                          ),),
+                        child: Text(message.message),
                       ),
-                      Text("PASTEL"),
+                      // Text(message.message),
                     ],
                   ),
                 )

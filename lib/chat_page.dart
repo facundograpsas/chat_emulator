@@ -17,7 +17,9 @@ class ChatPage extends StatefulWidget {
 class _ChatPageState extends State<ChatPage> {
 
   String mBg = "whatsappbg.png";
-  String webBg = "whatsappwebbg.jpg";
+  String webBg = "goku.jpg";
+  // String webBg = "whatsappwebbg.jpg";
+
   String? bg;
 
   @override
@@ -38,7 +40,7 @@ class _ChatPageState extends State<ChatPage> {
         body: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/$mBg'),
+                image: AssetImage('assets/$bg'),
                 fit: BoxFit.cover
               )
             ),

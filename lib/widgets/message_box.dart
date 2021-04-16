@@ -5,15 +5,13 @@ import 'package:google_fonts/google_fonts.dart';
 class MessageBox extends StatelessWidget {
 
   const MessageBox({this.message,
-    Key? key, required this.scrollController,
+    Key? key
   }) : super(key: key);
 
-  final ScrollController scrollController;
   final message;
 
   @override
   Widget build(BuildContext context) {
-    // scrollController.jumpTo(scrollController.position.maxScrollExtent);
     return Wrap(
       children: [
         Container(
@@ -41,6 +39,7 @@ class MessageBox extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      if(message.message!="")
                       Padding(
                         padding: const EdgeInsets.only(bottom: 4),
                         child: Text(message.message,
@@ -50,9 +49,6 @@ class MessageBox extends StatelessWidget {
                           width:300,
                           height:300,
                           child: Image.network(message.image))
-                      
-                        
-
                       // Text(message.message),
                     ],
                   ),

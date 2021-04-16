@@ -6,15 +6,13 @@ class FirstMessageBox extends StatelessWidget {
 
 
   const FirstMessageBox({this.message,
-    Key? key, required this.scrollController,
+    Key? key
   }) : super(key: key);
 
   final message;
-  final ScrollController scrollController;
 
   @override
   Widget build(BuildContext context) {
-    // scrollController.jumpTo(scrollController.position.maxScrollExtent);
     return Wrap(
       children: [
         Container(

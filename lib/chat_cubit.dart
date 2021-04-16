@@ -2,9 +2,6 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:opinologos_eternum/message.dart';
@@ -20,8 +17,6 @@ class ChatCubit extends Cubit<ChatState>{
   late String _fileText;
   late int _index;
 
-
-
   ChatCubit()  : super(ChatInitial());
 
   void loadChat() async{
@@ -33,7 +28,6 @@ class ChatCubit extends Cubit<ChatState>{
   }
 
   Message stringSplitToMessage(_index){
-    // print(_index);
     var messageSplit = _fullList.elementAt(_index).split(": ");
     return Message(sender: messageSplit[0], message: messageSplit[1]);
   }
@@ -78,8 +72,7 @@ class ChatCubit extends Cubit<ChatState>{
 
   @override
   void onChange(Change<ChatState> change) {
-    // TODO: implement onChange
-    // print(change.toString());
+    print(change.toString());
     super.onChange(change);
   }
 

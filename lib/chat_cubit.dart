@@ -33,15 +33,21 @@ class ChatCubit extends Cubit<ChatState>{
     sendMessage();
   }
 
+
+  Message getMessage(){
+    var messageSplit = _fullList.elementAt(_index).split(": ");
+    _index++;
+    return Message(sender: messageSplit[0], message: messageSplit[1]);
+  }
+
   void sendMessage() async {
     var messageSplit = _fullList.elementAt(_index).split(": ");
-    var nextMessageSplit = _fullList.elementAt(_index).split(": ");
-
     var message = Message(sender: messageSplit[0], message: messageSplit[1]);
+    var nextMessageSplit = _fullList.elementAt(_index).split(": ");
     var nextMessage = Message(sender: messageSplit[0], message: messageSplit[1]);
 
 
-    emit(ChatWritingMessage(_chatList,nextMessage.sender));
+    emit(ChatWritingMessage(_chatList,message.sender));
 
 
     if(_chatList.isNotEmpty) {

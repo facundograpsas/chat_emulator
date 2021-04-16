@@ -14,12 +14,12 @@ class Message{
 
     switch(sender) {
       case "Juanfra": {
-        color = Colors.red;
+        color = Colors.blue;
       }
       break;
 
       case "Juli": {
-        color = Colors.blue;
+        color = Colors.orange;
       }
       break;
       case "Gonza": {
@@ -27,7 +27,7 @@ class Message{
       }
       break;
       case "Santi": {
-        color = Colors.yellow;
+        color = Colors.brown;
       }
       break;
       case "Nahue": {
@@ -35,11 +35,31 @@ class Message{
       }
       break;
       case "Tomi": {
-        color = Colors.brown;
+        color = Colors.red;
       }
       break;
       case "Pablito": {
-        color = Colors.orange;
+        color = Colors.greenAccent;
+      }
+      break;
+      case "Lalo": {
+        color = Colors.deepPurpleAccent;
+      }
+      break;
+      case "Facu": {
+        color = Colors.cyan;
+      }
+      break;
+      case "Mati": {
+        color = Colors.lightGreen;
+      }
+      break;
+      case "Juani": {
+        color = Colors.redAccent;
+      }
+      break;
+      case "Pelle": {
+        color = Colors.brown;
       }
       break;
       default: {

@@ -60,17 +60,14 @@ class _ChatPageState extends State<ChatPage> {
                   BlocBuilder<ChatCubit, ChatState>(builder: (context, state)
             {
               if(state is ChatWritingMessage){
-                return Padding(
-                  padding: const EdgeInsets.only(left: 4,top: 5),
-                  child: Text("${state.sender} esta escribiendo un mensaje...",
-                    style:TextStyle(
-                        fontSize: 13,
-                        color: Colors.grey
-                    ),),
-                );
+                return Text("${state.sender}BOT esta escribiendo un mensaje...",
+                  style:TextStyle(
+                      fontSize: 13,
+                      color: Colors.grey
+                  ),);
               }
               else{
-                return Text("toca para infor del grupo",
+                return Text("toca para info. del grupo",
                     style:TextStyle(
                         fontSize: 13,
                         color: Colors.grey

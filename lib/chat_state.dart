@@ -24,6 +24,13 @@ class ChatWritingMessage extends ChatState{
   final List<Message> chatList;
   final String sender;
   ChatWritingMessage(this.chatList, this.sender);
+  List<Object> get props => [sender, chatList];
+}
+
+class ChatNotWritingMessage extends ChatState{
+  final List<Message> chatList;
+  final String sender;
+  ChatNotWritingMessage(this.chatList, this.sender);
 
   List<Object> get props => [sender, chatList];
 

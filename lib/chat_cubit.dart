@@ -33,29 +33,20 @@ class ChatCubit extends Cubit<ChatState>{
     sendMessage();
   }
 
-
-  Message getMessage(){
+  Message stringSplitToMessage(_index){
     var messageSplit = _fullList.elementAt(_index).split(": ");
-    _index++;
     return Message(sender: messageSplit[0], message: messageSplit[1]);
   }
 
+  Future<Message> getMessage () async {
+    var message =  stringSplitToMessage(_index);
+    List<Message> messageList = [stringSplitToMessage(_index),stringSplitToMessage(_index+1),stringSplitToMessage(_index+2)];
+    await writingMessage(messageList, message);
+    return message;
+  }
+
   void sendMessage() async {
-    var messageSplit = _fullList.elementAt(_index).split(": ");
-    var message = Message(sender: messageSplit[0], message: messageSplit[1]);
-    var nextMessageSplit = _fullList.elementAt(_index).split(": ");
-    var nextMessage = Message(sender: messageSplit[0], message: messageSplit[1]);
-
-
-    emit(ChatWritingMessage(_chatList,message.sender));
-
-
-    if(_chatList.isNotEmpty) {
-      await messageTimeRandomizer(message.message);
-      _lastMessage = _chatList.last;
-      if(_chatList.last.sender==message.sender) message.firstMessage = false;
-    }
-
+    var message = await getMessage();
     _chatList.add(message);
     _index++;
     emit(ChatSendingMessage(_chatList));
@@ -63,10 +54,26 @@ class ChatCubit extends Cubit<ChatState>{
     sendMessage();
   }
 
-  Future messageTimeRandomizer(String message) async {
-    var messageLength = message.length;
-    await Future.delayed(Duration(milliseconds: messageLength*100+Random().nextInt(3000)));
+
+  Future writingMessage(List<Message> messageList, Message currentMessage) async {
+    if(_chatList.isNotEmpty) {
+      for(int i = 0 ; i<3; i++){
+        var randomWait = Random().nextInt(1000);
+        if(Random().nextInt(2) == 0){
+          emit(ChatWritingMessage(_chatList,messageList[Random().nextInt(messageList.length)].sender));
+          await Future.delayed(Duration(milliseconds:Random().nextInt(randomWait)+(currentMessage.message.length*50)));
+        }
+        else{
+          emit(ChatNotWritingMessage(_chatList,messageList[Random().nextInt(messageList.length)].sender));
+          await Future.delayed(Duration(milliseconds:Random().nextInt(randomWait)));
+        }
+        emit(ChatWritingMessage(_chatList,messageList[Random().nextInt(messageList.length)].sender));
+        await Future.delayed(Duration(milliseconds:Random().nextInt(500)));
+      }
+      if(_chatList.last.sender==currentMessage.sender) currentMessage.firstMessage = false;
+    }
   }
+
 
   @override
   void onChange(Change<ChatState> change) {

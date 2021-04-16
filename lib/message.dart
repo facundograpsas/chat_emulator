@@ -1,15 +1,20 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 
 class Message{
 
   final String sender;
-  final String message;
+  String message;
   bool firstMessage;
   late Color color;
 
-  Message({required this.sender, required this.message}) : firstMessage = true {
+  String? image;
+
+  Message({required this.sender, required this.message, this.image}) : firstMessage = true {
 
 
     switch(sender) {
@@ -68,6 +73,22 @@ class Message{
     }
 
   }
+
+
+   Future<int> getImage() async{
+    if(message.startsWith("*image")){
+      print("startsw");
+      var req = await get(Uri.parse("https://meme-api.herokuapp.com/gimme/dankgentina"));
+      if(req.statusCode==200){
+        var imageMap = jsonDecode(req.body);
+        image = imageMap["url"];
+        message = "";
+      }
+    }
+  return 1;
+}
+
+
 
 
 }

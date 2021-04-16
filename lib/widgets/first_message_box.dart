@@ -52,6 +52,10 @@ class FirstMessageBox extends StatelessWidget {
                       ),
                       Text(message.message,
                           style: GoogleFonts.mukta()),
+                      if(message.image!=null) Container(
+                          width:300,
+                          height: 300,
+                          child: Image.network(message.image))
                     ],
                   ),
                 )

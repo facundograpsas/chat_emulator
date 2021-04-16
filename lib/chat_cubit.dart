@@ -33,7 +33,7 @@ class ChatCubit extends Cubit<ChatState>{
   }
 
   Message stringSplitToMessage(_index){
-    print(_index);
+    // print(_index);
     var messageSplit = _fullList.elementAt(_index).split(": ");
     return Message(sender: messageSplit[0], message: messageSplit[1]);
   }
@@ -47,6 +47,7 @@ class ChatCubit extends Cubit<ChatState>{
 
   void sendMessage() async {
     var message = await getMessage();
+    await message.getImage();
     _chatList.add(message);
     _index++;
     emit(ChatSendingMessage(_chatList));

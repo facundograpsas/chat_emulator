@@ -46,6 +46,13 @@ class MessageBox extends StatelessWidget {
                         child: Text(message.message,
                             style: GoogleFonts.mukta()),
                       ),
+                      if(message.image!=null) Container(
+                          width:300,
+                          height:300,
+                          child: Image.network(message.image))
+                      
+                        
+
                       // Text(message.message),
                     ],
                   ),

@@ -25,6 +25,7 @@ class CircularRadiusShadowTextField extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: TextField(
+            enabled: false,
             keyboardType: TextInputType.text,
             minLines: 1,
             decoration: InputDecoration(

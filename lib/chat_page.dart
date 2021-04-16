@@ -103,6 +103,15 @@ class ChatView extends StatefulWidget {
 }
 
 class _ChatViewState extends State<ChatView> {
+
+  ScrollController _scrollController = ScrollController();
+  @override
+  void initState() {
+    // WidgetsBinding.instance!
+    //     .addPostFrameCallback((_) => scrollBottom(context));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ChatCubit, ChatState>(builder: (context, state) {
@@ -112,6 +121,9 @@ class _ChatViewState extends State<ChatView> {
         return Center(child: CircularProgressIndicator());
       }
         else{
+          if(_scrollController.hasClients){
+            _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+          }
       return Column(
         children: [
           SizedBox(
@@ -119,13 +131,16 @@ class _ChatViewState extends State<ChatView> {
           ),
           Flexible(
               child: ListView(
+                controller: _scrollController,
                 children: <Widget>[
                   for(final message in chats)
                       if(message.firstMessage)
-                        FirstMessageBox(message: message)
+                        FirstMessageBox(message: message, scrollController:_scrollController)
                       else
-                        MessageBox(message:message)
-                ]),
+                        MessageBox(message:message, scrollController:_scrollController)
+
+                ]
+              ),
           ),
           Row(
             children: [
@@ -138,6 +153,14 @@ class _ChatViewState extends State<ChatView> {
       );}
     })
     ;
+  }
+
+    void onScroll() {
+      _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+   }
+
+  scrollBottom(BuildContext context) {
+    print("SCROLLING BOTTOM");
   }
 }
 

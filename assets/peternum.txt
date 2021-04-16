@@ -1712,12 +1712,12 @@ Juanfra: Es que es un chiste
 Nahue: Pero es tan obvio que la de la historia													
 Nahue: Si se puede cambiar el link de ser humano no puede hacer eso													
 Juanfra: Jajajajaja													
-Juani: ‎*imagen*										
-Santi: ‎*imagen*										
-Santi: ‎*imagen*										
-Santi: ‎*imagen*										
-Santi: ‎*imagen*										
-Santi: ‎*imagen*										
+Juani: *imagen*
+Santi: *imagen*
+Santi: *imagen*
+Santi: *imagen*
+Santi: *imagen*
+Santi: *imagen*
 Juanfra: Jajajajajaja										
 Juanfra: Ahí te averiguo										
 Juanfra: Está al lado de jajaja										
@@ -2169,7 +2169,7 @@ Nahue: No lo hacen los cuatros y cambiando
 Nahue: Yo no iba a ser lo más grande del lobo de frío del mundo										
 Juli: Uuu a quien le gana a las dos										
 Juli: 🤦🏻‍♂										
-Juani: ‎*audio*										
+Juani: *audio*
 Pablito: Q mandeja a messi lloran										
 Facu: Lo grabe y se lo hacen										
 Facu: *imagen*										

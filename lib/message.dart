@@ -76,8 +76,8 @@ class Message{
 
 
    Future<int> getImage() async{
-    if(message.startsWith("*image")){
-      print("startsw");
+    if(message.contains("magen*")){
+      // print("startsw");
       var req = await get(Uri.parse("https://meme-api.herokuapp.com/gimme/dankgentina"));
       if(req.statusCode==200){
         var imageMap = jsonDecode(req.body);

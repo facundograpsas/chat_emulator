@@ -42,7 +42,7 @@ class FirstMessageBox extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(bottom: 1),
-                        child: Text(message.sender+"BOT",
+                        child: Text(message.sender,
                           style: GoogleFonts.mukta(
                               fontWeight: FontWeight.bold,
                               color: message.color

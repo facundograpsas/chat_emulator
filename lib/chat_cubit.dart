@@ -20,7 +20,7 @@ class ChatCubit extends Cubit<ChatState>{
   ChatCubit()  : super(ChatInitial());
 
   void loadChat() async{
-    _fileText = await rootBundle.loadString('assets/peternum.txt');
+    _fileText = await rootBundle.loadString('assets/chat.txt');
     _fullList = LineSplitter.split(_fileText).toList();
     _randomStart = Random().nextInt(_fullList.length-1);
     _index = _randomStart;

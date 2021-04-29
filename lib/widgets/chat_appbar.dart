@@ -18,7 +18,7 @@ class ChatAppBar extends StatelessWidget {
               shape: BoxShape.circle,
               image: DecorationImage(
                   fit:BoxFit.cover,
-                  image: AssetImage('assets/images/groupicture.jpg')
+                  image: AssetImage('assets/images/robot_icon.png')
               )
           )),
         Padding(
@@ -26,11 +26,11 @@ class ChatAppBar extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("el burro del grupo"),
+              Text("1287GA"),
               BlocBuilder<ChatCubit, ChatState>(builder: (context, state)
               {
                 if(state is ChatWritingMessage){
-                  return Text("${state.sender}BOT esta escribiendo un mensaje...",
+                  return Text("${state.sender} esta escribiendo un mensaje...",
                     style:TextStyle(
                         fontSize: 13,
                         color: Colors.grey

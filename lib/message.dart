@@ -18,48 +18,48 @@ class Message{
 
 
     switch(sender) {
-      case "Juanfra": {
+      case "BOT1": {
         color = Colors.blue;
       }
       break;
 
-      case "Juli": {
+      case "BOT2": {
         color = Colors.orange;
       }
       break;
-      case "Gonza": {
+      case "BOT3": {
         color = Colors.green;
       }
       break;
-      case "Santi": {
+      case "BOT4": {
         color = Colors.brown;
       }
       break;
-      case "Nahue": {
+      case "BOT5": {
         color = Colors.purple;
       }
       break;
-      case "Tomi": {
+      case "BOT6": {
         color = Colors.red;
       }
       break;
-      case "Pablito": {
+      case "BOT7": {
         color = Colors.greenAccent;
       }
       break;
-      case "Lalo": {
+      case "BOT8": {
         color = Colors.deepPurpleAccent;
       }
       break;
-      case "Facu": {
+      case "BOT9": {
         color = Colors.cyan;
       }
       break;
-      case "Mati": {
+      case "BOT10": {
         color = Colors.lightGreen;
       }
       break;
-      case "Juani": {
+      case "BOT11": {
         color = Colors.redAccent;
       }
       break;
